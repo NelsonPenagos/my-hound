@@ -1,8 +1,9 @@
 <template>
   <main>
     <div class="container">
+      <Header />
       <div class="row">       
-          <div v-for="item in pets" :key="item" class="col-sm">
+          <div v-for="item in pets" :key="item.id" class="col-sm">
             <Pet :breed="item.breed" :image="item.url"/>
           </div>
       </div>
@@ -13,11 +14,13 @@
 <script>
 
 import api from '@/api';
+import Header from '@/components/Header';
 import Pet from '@/components/Pet';
 
 export default {
   name: 'App',
   components: {
+    Header,
     Pet
   },
   data() {
